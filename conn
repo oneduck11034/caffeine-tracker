@@ -1,0 +1,25 @@
+✔ Project name · tracker
+✔ Identifier · com.tracker.app
+✔ Choose which language to use for your frontend · Rust - (cargo)
+✔ Choose your UI template · Vanilla
+
+Template created!
+
+Your system is missing dependencies (or they do not exist in $PATH):
+╭────────────────────┬───────────────────────────────────────────────────────────╮
+│ Tauri CLI          │ Run `cargo install tauri-cli --version '^2.0.0' --locked` │
+├────────────────────┼───────────────────────────────────────────────────────────┤
+│ webkit2gtk & rsvg2 │ Visit https://v2.tauri.app/guides/prerequisites/#linux    │
+╰────────────────────┴───────────────────────────────────────────────────────────╯
+
+Make sure you have installed the prerequisites for your OS: https://tauri.app/v1/guides/getting-started/prerequisites, then run:
+  cd tracker
+  cargo tauri android init
+
+For Desktop development, run:
+  cargo tauri dev
+
+For Android development, run:
+  cargo tauri android dev
+
+

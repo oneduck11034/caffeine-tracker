@@ -1,18 +1,26 @@
-const { invoke } = window.__TAURI__.core;
+const caffeineForm = document.getElementById('caffeine-form');
+const caffeineList = document.getElementById('caffeine-list');
+const totalCaffeineDisplay = document.getElementById('total-caffeine');
 
-let greetInputEl;
-let greetMsgEl;
+let totalCaffeine = 0;
 
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-  greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
-}
+caffeineForm.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
-  });
+    const beverage = document.getElementById('beverage').value;
+    const amount = parseInt(document.getElementById('amount').value, 10);
+
+    // Add to the total caffeine
+    totalCaffeine += amount;
+
+    // Create a new list item
+    const li = document.createElement('li');
+    li.textContent = `${beverage}: ${amount} mg`;
+    caffeineList.appendChild(li);
+
+    // Update the total caffeine display
+    totalCaffeineDisplay.textContent = totalCaffeine;
+
+    // Clear the form
+    caffeineForm.reset();
 });
